@@ -739,8 +739,8 @@ local SKELETON_CONNECTIONS = {
 -- SUBHAN_BOY CORE + FULL FEATURES VIP CONFIGURATION 
 -- ========================================== 
 _G.SUBHAN_BOYConfig = _G.SUBHAN_BOYConfig or { 
-    CustomMagicBullet = false,
-    AutoHead = false, 
+    CustomMagicBullet = true,
+    AutoHead = true, 
     EspVip = false, 
     EspDistance = false, 
     EspVipPro = false, 
@@ -766,7 +766,7 @@ _G.SUBHAN_BOYConfig = _G.SUBHAN_BOYConfig or {
     WhiteBody = false, 
     ColorBodyV2 = false,    
     wallhackng = false, 
-    Crosshair = true, 
+    Crosshair = false, 
     CrosshairSize = 1.0,   -- <-- NEW
     Accuracy = false,
     GodMode = false, 
@@ -1652,7 +1652,7 @@ function _G.InitModMenuTab()
             }
         }
         
-        table.insert(SettingCatalog, SettingPageDefine.ModMenu)
+        --table.insert(SettingCatalog, SettingPageDefine.ModMenu)
     end
 
     local UIManager = _G.UIManager
@@ -1673,7 +1673,7 @@ function _G.InitModMenuTab()
                         end
                     end
                     if not hasModMenu then
-                        table.insert(catalog, SettingPageDefine.ModMenu)
+                        --table.insert(catalog, SettingPageDefine.ModMenu)
                     end
                 end
             end
