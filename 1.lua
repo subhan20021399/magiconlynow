@@ -739,8 +739,8 @@ local SKELETON_CONNECTIONS = {
 -- SUBHAN_BOY CORE + FULL FEATURES VIP CONFIGURATION 
 -- ========================================== 
 _G.SUBHAN_BOYConfig = _G.SUBHAN_BOYConfig or { 
-    CustomMagicBullet = true,
-    AutoHead = true, 
+    CustomMagicBullet = false,
+    AutoHead = false, 
     EspVip = false, 
     EspDistance = false, 
     EspVipPro = false, 
@@ -766,7 +766,7 @@ _G.SUBHAN_BOYConfig = _G.SUBHAN_BOYConfig or {
     WhiteBody = false, 
     ColorBodyV2 = false,    
     wallhackng = false, 
-    Crosshair = false, 
+    Crosshair = true, 
     CrosshairSize = 1.0,   -- <-- NEW
     Accuracy = false,
     GodMode = false, 
@@ -1504,7 +1504,7 @@ function _G.InitModMenuTab()
     _G.ModMenuInitialized = true
 
     _G.SUBHAN_BOYState.CustomTextData = _G.SUBHAN_BOYState.CustomTextData or {
-        OuterSpeed = 10, InnerSpeed = 10, OuterRecoil = 0, HRecoil = 0.3, VRecoil = 0.3, MagicHead = 1.6, MagicBody = 1.5, MagicLegs = 1.4, IpadViewFOV = 120,
+        OuterSpeed = 10, InnerSpeed = 10, OuterRecoil = 0, HRecoil = 0.3, VRecoil = 0.3, MagicHead = 1.98, MagicBody = 1.65, MagicLegs = 1.2, IpadViewFOV = 120,
         AimTouchHipPrio = 1, AimTouchHipBone = 1, AimTouchHipCond = 1, AimTouchHipSpeed = 50, AimTouchHipFOV = 30, AimTouchHipDist = 250,
         AimTouchSGPrio = 1, AimTouchSGBone = 2, AimTouchSGCond = 1, AimTouchSGSpeed = 80, AimTouchSGFOV = 40, AimTouchSGDist = 30,
         AimTouchScopePrio = 1, AimTouchScopeBone = 2, AimTouchScopeCond = 1, AimTouchScopeSpeed = 40, AimTouchScopeFOV = 20, AimTouchScopeDist = 300, AimTouchScopePred = 0, AimTouchScopeRecoil = 0,
@@ -1645,14 +1645,14 @@ function _G.InitModMenuTab()
             UIKey = "Setting_Page_Privacy", 
             Category = {
                 { Key = "Cat_Aimbot_Force", Text= "UR/ROOM-TOUCH AIM", Stack = StackAimbotForce },
-                --{ Key = "Cat_ESP_Visual", Text= "ESP PLAYER", Stack = StackESPVisual },
+                { Key = "Cat_ESP_Visual", Text= "ESP PLAYER", Stack = StackESPVisual },
                 { Key = "Cat_Magic_Bullet", Text= "MAGIC + HEADSHOT", Stack = StackMagicBullet }
                 --{ Key = "Cat_Combat_Graphic", Text= "WALLHACK/FPS", Stack = StackCombatGraphic },
                 --{ Key = "Cat_ColorMod", Text= "COLOR CUSTOM", Stack = StackColorMod }
             }
         }
         
-        --table.insert(SettingCatalog, SettingPageDefine.ModMenu)
+        table.insert(SettingCatalog, SettingPageDefine.ModMenu)
     end
 
     local UIManager = _G.UIManager
@@ -1673,7 +1673,7 @@ function _G.InitModMenuTab()
                         end
                     end
                     if not hasModMenu then
-                        --table.insert(catalog, SettingPageDefine.ModMenu)
+                        table.insert(catalog, SettingPageDefine.ModMenu)
                     end
                 end
             end
@@ -2507,7 +2507,7 @@ local function MainLoop()
     if isExpired then return end
 
     if _G.SUBHAN_BOYState.CustomTextData == nil then 
-        _G.SUBHAN_BOYState.CustomTextData = {OuterSpeed = 10, InnerSpeed = 10, HRecoil = 0.3, VRecoil = 0.3, MagicHead = 1.6, MagicBody = 1.5, MagicLegs = 1.4, IpadViewFOV = 120, AimTouchHipPrio = 1, AimTouchHipBone = 1, AimTouchHipCond = 1, AimTouchHipSpeed = 50, AimTouchHipFOV = 30, AimTouchHipDist = 250, AimTouchSGPrio = 1, AimTouchSGBone = 2, AimTouchSGCond = 1, AimTouchSGSpeed = 80, AimTouchSGFOV = 40, AimTouchSGDist = 30, AimTouchScopePrio = 1, AimTouchScopeBone = 2, AimTouchScopeCond = 1, AimTouchScopeSpeed = 40, AimTouchScopeFOV = 20, AimTouchScopeDist = 300, AimTouchSniperPrio = 1, AimTouchSniperBone = 1, AimTouchSniperCond = 2, AimTouchSniperSpeed = 30, AimTouchSniperFOV = 20, AimTouchSniperDist = 400}
+        _G.SUBHAN_BOYState.CustomTextData = {OuterSpeed = 10, InnerSpeed = 10, HRecoil = 0.3, VRecoil = 0.3, MagicHead = 1.98, MagicBody = 1.65, MagicLegs = 1.2, IpadViewFOV = 120, AimTouchHipPrio = 1, AimTouchHipBone = 1, AimTouchHipCond = 1, AimTouchHipSpeed = 50, AimTouchHipFOV = 30, AimTouchHipDist = 250, AimTouchSGPrio = 1, AimTouchSGBone = 2, AimTouchSGCond = 1, AimTouchSGSpeed = 80, AimTouchSGFOV = 40, AimTouchSGDist = 30, AimTouchScopePrio = 1, AimTouchScopeBone = 2, AimTouchScopeCond = 1, AimTouchScopeSpeed = 40, AimTouchScopeFOV = 20, AimTouchScopeDist = 300, AimTouchSniperPrio = 1, AimTouchSniperBone = 1, AimTouchSniperCond = 2, AimTouchSniperSpeed = 30, AimTouchSniperFOV = 20, AimTouchSniperDist = 400}
     end
 
     local okData, GameplayData = pcall(require, "GameLua.GameCore.Data.GameplayData") 
@@ -2901,7 +2901,7 @@ local function MainLoop()
     pcall(function()
         if _G.SUBHAN_BOYConfig.CustomMagicBullet then
             runInject_Global = true
-            mHead_Global = 1.6; mBody_Global = 1.5; mLegs_Global = 1.4
+            mHead_Global = 1.0; mBody_Global = 1.0; mLegs_Global = 1.0
             if _G.SUBHAN_BOYState.CustomTextData then
                 local cData = _G.SUBHAN_BOYState.CustomTextData
                 if cData.MagicHead ~= nil then mHead_Global = tonumber(cData.MagicHead) or mHead_Global end
@@ -2910,7 +2910,7 @@ local function MainLoop()
             end
         elseif _G.SUBHAN_BOYConfig.MagicBullet then
             runInject_Global = true
-            mHead_Global = 1.6; mBody_Global = 1.5; mLegs_Global = 1.4
+            mHead_Global = 1.05; mBody_Global = 1.0; mLegs_Global = 1.0
         end
 
         if runInject_Global then
