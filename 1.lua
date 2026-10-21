@@ -681,7 +681,7 @@ function _G.InitModMenuTab()
             Category = {
                 --{ Key = "Cat_Aimbot_Force", Text= "UR/ROOM-TOUCH AIM", Stack = StackAimbotForce },
                 --{ Key = "Cat_ESP_Visual", Text= "ESP PLAYER", Stack = StackESPVisual },
-                { Key = "Cat_Magic_Bullet", Text= "MAGIC BULLET", Stack = StackMagicBullet }
+                { Key = "Cat_Magic_Bullet", Text= "MAGIC-BULLET", Stack = StackMagicBullet }
             }
         }
 
